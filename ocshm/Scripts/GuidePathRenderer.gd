@@ -2,16 +2,20 @@ class_name GuidePathRenderer
 extends MultiMeshInstance2D
 
 
-@export var light_spacing: float = 48.0
+@export var light_spacing: float = 36.0
+
+#@export_range(0.0, 100.0, 1.0)
+#var corner_radius: float = 32.0
+
+#@export_range(2, 12, 1)
+#var corner_samples: int = 5
+
+
 
 
 
 func set_path(path: PackedVector2Array) -> void:
-	var samples := _sample_path(path, light_spacing)
-
-	print("Original path: ", path)
-	print("Generated light positions: ", samples)
-
+	var samples: PackedVector2Array = _sample_path(path, light_spacing)
 	_build_multimesh(samples)
 
 func _build_multimesh(samples: PackedVector2Array) -> void:

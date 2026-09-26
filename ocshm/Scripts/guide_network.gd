@@ -1,6 +1,14 @@
 class_name GuideNetwork
 extends Node2D
 
+@export var player: Node2D
+
+@export_range(0.05, 0.5, 0.05)
+
+
+var visual_refresh_interval: float = 0.1
+var cached_route := PackedVector2Array()
+var refresh_timer: float = 0.0
 
 @export var lighting_system: LightingSystem
 
@@ -15,6 +23,7 @@ var checkpoints: Array[GuideCheckpoint] = []
 var current_checkpoint: GuideCheckpoint
 
 
+
 func _ready() -> void:
 	print("GUIDE NETWORK STARTED")
 	_collect_checkpoints()
@@ -26,7 +35,7 @@ func _ready() -> void:
 	print("Starting checkpoint: ", starting_checkpoint)
 	print("Target checkpoint: ", target_checkpoint)
 	print("Lighting system: ", lighting_system)
-	update_guide()
+	call_deferred("update_guide")
 
 func _collect_checkpoints() -> void:
 	checkpoints.clear()
@@ -99,32 +108,70 @@ func _on_checkpoint_reached(
 	update_guide()
 
 func update_guide() -> void:
-	print("Updating guide...")
-
 	if current_checkpoint == null:
-		print("ERROR: current checkpoint is null")
 		return
 
 	if target_checkpoint == null:
-		print("ERROR: target checkpoint is null")
 		return
 
 	if lighting_system == null:
-		print("ERROR: lighting system is null")
 		return
 
-	var start_id := current_checkpoint.get_instance_id()
-	var target_id := target_checkpoint.get_instance_id()
 
-	print("Start ID: ", start_id)
-	print("Target ID: ", target_id)
+	if current_checkpoint == target_checkpoint:
+		lighting_system.clear_guide_path()
 
-	var path := astar.get_point_path(
-		start_id,
-		target_id
+		print(
+			"Destination reached: ",
+			target_checkpoint.checkpoint_id
+		)
+
+		return
+
+
+	var start_id: int = (
+		current_checkpoint.get_instance_id()
 	)
 
-	print("AStar path: ", path)
-	print("Path size: ", path.size())
+	var target_id: int = (
+		target_checkpoint.get_instance_id()
+	)
 
-	lighting_system.show_guide_path(path)
+
+	var path: PackedVector2Array = (
+		astar.get_point_path(
+			start_id,
+			target_id
+		)
+	)
+
+
+	print("Route: ", path)
+
+
+	lighting_system.show_guide_path(
+		path
+	)
+
+
+	lighting_system.set_destination(
+		target_checkpoint.global_position
+	)
+
+
+
+func set_target(
+	new_target: GuideCheckpoint
+) -> void:
+
+	if new_target == null:
+		return
+
+	target_checkpoint = new_target
+
+	print(
+		"New guide target: ",
+		new_target.checkpoint_id
+	)
+
+	update_guide()

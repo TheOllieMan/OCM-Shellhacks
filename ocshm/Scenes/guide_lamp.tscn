@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cv767qd55i3af"]
+
+[ext_resource type="Script" uid="uid://c8wh8b4ame1yb" path="res://guide_lamp.gd" id="1_m82kd"]
+[ext_resource type="Shader" uid="uid://u0wpx1ii3akx" path="res://Scenes/guide_lamp_glow.gdshader" id="2_bm3ua"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hooog"]
+shader = ExtResource("2_bm3ua")
+shader_parameter/glow_color = Color(0.75, 0.88, 1, 1)
+shader_parameter/falloff = 2.4
+
+[sub_resource type="QuadMesh" id="QuadMesh_shqcg"]
+size = Vector2(120, 70)
+
+[sub_resource type="Gradient" id="Gradient_bm3ua"]
+offsets = PackedFloat32Array(0, 0.12, 0.3, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.92156863, 1, 1, 1, 0.5882353, 1, 1, 1, 0.1764706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yh4yq"]
+gradient = SubResource("Gradient_bm3ua")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="GuideLamp" type="Node2D" unique_id=872248598]
+script = ExtResource("1_m82kd")
+
+[node name="PoolGlow" type="MeshInstance2D" parent="." unique_id=192732248]
+visible = false
+material = SubResource("ShaderMaterial_hooog")
+mesh = SubResource("QuadMesh_shqcg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=770759891]
+color = Color(0.8352941, 0.6901961, 0.13333334, 1)
+energy = 0.16
+texture = SubResource("GradientTexture2D_yh4yq")
+texture_scale = 3.19

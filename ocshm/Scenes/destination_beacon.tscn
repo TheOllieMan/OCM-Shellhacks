@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cbiq0m1abintl"]
+
+[ext_resource type="Shader" uid="uid://cl74rcnibv1gj" path="res://Shaders/Lighting/destination_beacon.gdshader" id="1_iojlr"]
+[ext_resource type="Script" uid="uid://bprd1w600vpfj" path="res://Scenes/destination_beacon.gd" id="1_q7q23"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lktjg"]
+shader = ExtResource("1_iojlr")
+shader_parameter/beacon_color = Color(0.3, 0.8, 1, 1)
+shader_parameter/breathe_speed = 1.8
+
+[sub_resource type="QuadMesh" id="QuadMesh_d2jka"]
+size = Vector2(120, 35)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0ii1"]
+shader = ExtResource("1_iojlr")
+shader_parameter/beacon_color = Color(0.3, 0.8, 1, 1)
+shader_parameter/breathe_speed = 1.8
+
+[sub_resource type="QuadMesh" id="QuadMesh_hooog"]
+size = Vector2(28, 28)
+
+[sub_resource type="Gradient" id="Gradient_q7q23"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q7q23"]
+gradient = SubResource("Gradient_q7q23")
+fill = 1
+
+[sub_resource type="Gradient" id="Gradient_r462s"]
+offsets = PackedFloat32Array(0, 0.12, 0.3, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yh4yq"]
+gradient = SubResource("Gradient_r462s")
+fill = 1
+
+[sub_resource type="Gradient" id="Gradient_jm8l4"]
+offsets = PackedFloat32Array(0, 0.15, 0.35, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.9019608, 1, 1, 1, 0.39215687, 1, 1, 1, 0.078431375, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r462s"]
+gradient = SubResource("Gradient_jm8l4")
+fill = 1
+
+[node name="DestinationBeacon" type="Node2D" unique_id=180730291]
+script = ExtResource("1_q7q23")
+
+[node name="GroundGlow" type="MeshInstance2D" parent="." unique_id=617491662]
+visible = false
+material = SubResource("ShaderMaterial_lktjg")
+scale = Vector2(0.35, 0.35)
+mesh = SubResource("QuadMesh_d2jka")
+
+[node name="Core" type="MeshInstance2D" parent="." unique_id=1317209846]
+visible = false
+material = SubResource("ShaderMaterial_u0ii1")
+mesh = SubResource("QuadMesh_hooog")
+
+[node name="DestinationLight" type="PointLight2D" parent="." unique_id=1990916606]
+energy = 0.22
+texture = SubResource("GradientTexture2D_q7q23")
+texture_scale = 4.2
+
+[node name="OuterLight" type="PointLight2D" parent="." unique_id=1900798608]
+color = Color(0.89411765, 0.92941177, 1, 1)
+energy = 0.18
+texture = SubResource("GradientTexture2D_yh4yq")
+texture_scale = 4.0
+
+[node name="InnerLight" type="PointLight2D" parent="." unique_id=742648402]
+color = Color(0.9411765, 0.9607843, 1, 1)
+energy = 0.12
+texture = SubResource("GradientTexture2D_r462s")
+texture_scale = 1.9

@@ -1,37 +1,45 @@
 [gd_scene format=3 uid="uid://wuxggq002l28"]
 
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="1_dtjkg"]
-[ext_resource type="Script" uid="uid://t4wt071hqgxm" path="res://guide_network.gd" id="1_iti4p"]
+[ext_resource type="Script" uid="uid://t4wt071hqgxm" path="res://Scripts/guide_network.gd" id="1_iti4p"]
 [ext_resource type="PackedScene" uid="uid://46ba0fkrpgap" path="res://Scenes/lighting_system.tscn" id="3_eglq2"]
 [ext_resource type="PackedScene" uid="uid://bfofnrqqygwl1" path="res://Scenes/guide_checkpoint.tscn" id="3_rsyfn"]
 
 [node name="TestLevel" type="Node" unique_id=91408135]
 
-[node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("1_dtjkg")]
-position = Vector2(427, 245)
+[node name="TestFloor" type="ColorRect" parent="." unique_id=984935906]
+offset_left = -45.0
+offset_top = -60.0
+offset_right = 916.0
+offset_bottom = 550.0
 
-[node name="GuideNetwork" type="Node2D" parent="." unique_id=1113810892 node_paths=PackedStringArray("lighting_system", "starting_checkpoint", "target_checkpoint")]
+[node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("1_dtjkg")]
+position = Vector2(450, 203)
+
+[node name="GuideNetwork" type="Node2D" parent="." unique_id=1113810892 node_paths=PackedStringArray("player", "lighting_system", "starting_checkpoint", "target_checkpoint")]
 script = ExtResource("1_iti4p")
+player = NodePath("../Cal")
 lighting_system = NodePath("../LightingSystem")
 starting_checkpoint = NodePath("Checkpoint_A")
 target_checkpoint = NodePath("Checkpoint_D")
 
 [node name="Checkpoint_A" parent="GuideNetwork" unique_id=855309603 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
 position = Vector2(153, 110)
+checkpoint_id = &"A"
 neighbors = [null]
 
 [node name="Checkpoint_B" parent="GuideNetwork" unique_id=575309188 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
-position = Vector2(578, 98)
+position = Vector2(165, 254)
 checkpoint_id = &"B"
 neighbors = [NodePath("../Checkpoint_A"), NodePath("../Checkpoint_C")]
 
 [node name="Checkpoint_C" parent="GuideNetwork" unique_id=205269631 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
-position = Vector2(144, 417)
+position = Vector2(434, 397)
 checkpoint_id = &"C"
 neighbors = [NodePath("../Checkpoint_B"), NodePath("../Checkpoint_D")]
 
 [node name="Checkpoint_D" parent="GuideNetwork" unique_id=1690089589 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
-position = Vector2(661, 356)
+position = Vector2(730, 185)
 checkpoint_id = &"D"
 neighbors = [NodePath("../Checkpoint_C")]
 

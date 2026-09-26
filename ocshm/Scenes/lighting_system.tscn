@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://g6t8b8ucs0yl" path="res://Scripts/GuidePathRenderer.gd" id="1_f5vak"]
 [ext_resource type="Script" uid="uid://j5jcny2ad6nb" path="res://Scripts/LightingSystem.gd" id="1_hnodf"]
 [ext_resource type="Shader" uid="uid://e0kaqmhihrme" path="res://Shaders/Lighting/gudie_glow.gdshader" id="1_iawgw"]
+[ext_resource type="PackedScene" uid="uid://cv767qd55i3af" path="res://Scenes/guide_lamp.tscn" id="2_jg8lg"]
+[ext_resource type="PackedScene" uid="uid://cbiq0m1abintl" path="res://Scenes/destination_beacon.tscn" id="4_lktjg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iawgw"]
 shader = ExtResource("1_iawgw")
@@ -10,13 +12,35 @@ shader_parameter/glow_color = Color(0.25, 0.75, 1, 1)
 shader_parameter/core_size = 0.22
 shader_parameter/glow_falloff = 2.0
 shader_parameter/pulse_speed = 1.5
-shader_parameter/pulse_frequency = 3.0
+shader_parameter/pulse_width = 0.13
 shader_parameter/minimum_brightness = 0.25
 
-[node name="LightingSystem" type="Node2D" unique_id=763427150 node_paths=PackedStringArray("guide_renderer")]
+[node name="LightingSystem" type="Node2D" unique_id=763427150]
 script = ExtResource("1_hnodf")
-guide_renderer = NodePath("GuidePathRenderer")
+guide_lamp_scene = ExtResource("2_jg8lg")
+pulse_speed = 0.05
+pulse_width = 0.25
+pulse_boost = 0.05
+corner_radius = 1.0
 
 [node name="GuidePathRenderer" type="MultiMeshInstance2D" parent="." unique_id=1243249195]
+process_mode = 4
 material = SubResource("ShaderMaterial_iawgw")
 script = ExtResource("1_f5vak")
+
+[node name="GuideRibbon" type="Line2D" parent="." unique_id=1317541473]
+process_mode = 4
+z_index = 1
+width = 2.57
+default_color = Color(0.12925267, 0.5030946, 0.50284314, 0.3529412)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="DestinationBeacon" parent="." unique_id=180730291 instance=ExtResource("4_lktjg")]
+position = Vector2(42, 20)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=162339652]
+color = Color(0.0054086028, 0.064049885, 0.17029202, 1)
+
+[node name="LampContainer" type="Node2D" parent="." unique_id=307409500]

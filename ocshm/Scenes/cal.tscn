@@ -141,7 +141,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Cal" type="CharacterBody2D" unique_id=1774389727]
+[node name="Cal" type="CharacterBody2D" unique_id=1774389727 groups=["player"]]
 scale = Vector2(12.585, 12.585)
 script = ExtResource("1_fl0g7")
 
