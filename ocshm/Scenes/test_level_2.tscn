@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dtsd3vjurled6"]
+
+[node name="TestLevel2" type="Node2D" unique_id=2014037919]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1596968301]
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 1142.0
+offset_bottom = 668.0
