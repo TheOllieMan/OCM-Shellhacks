@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="OCSHM"
-run/main_scene="uid://c16hp6g0kycie"
+run/main_scene="uid://3vwog81nrruh"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
