@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bx5061o6rbh3l"]
+
+[ext_resource type="PackedScene" uid="uid://3vwog81nrruh" path="res://Scenes/AIScene.tscn" id="1_lh62a"]
+
+[node name="Node2D" type="Node2D" unique_id=706203681]
+
+[node name="World" parent="." unique_id=1275164589 instance=ExtResource("1_lh62a")]
