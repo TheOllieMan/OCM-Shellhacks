@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bfofnrqqygwl1"]
+
+[ext_resource type="Script" uid="uid://dgihstq4vhk3t" path="res://Scripts/GuideCheckpoint.gd" id="1_pi7kf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8unna"]
+
+[node name="GuideCheckpoint" type="Area2D" unique_id=855309603]
+script = ExtResource("1_pi7kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629644419]
+shape = SubResource("RectangleShape2D_8unna")

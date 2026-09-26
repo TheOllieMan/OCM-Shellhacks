@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://wuxggq002l28"]
+
+[ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="1_dtjkg"]
+[ext_resource type="Script" uid="uid://t4wt071hqgxm" path="res://guide_network.gd" id="1_iti4p"]
+[ext_resource type="PackedScene" uid="uid://46ba0fkrpgap" path="res://Scenes/lighting_system.tscn" id="3_eglq2"]
+[ext_resource type="PackedScene" uid="uid://bfofnrqqygwl1" path="res://Scenes/guide_checkpoint.tscn" id="3_rsyfn"]
+
+[node name="TestLevel" type="Node" unique_id=91408135]
+
+[node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("1_dtjkg")]
+position = Vector2(427, 245)
+
+[node name="GuideNetwork" type="Node2D" parent="." unique_id=1113810892 node_paths=PackedStringArray("lighting_system", "starting_checkpoint", "target_checkpoint")]
+script = ExtResource("1_iti4p")
+lighting_system = NodePath("../LightingSystem")
+starting_checkpoint = NodePath("Checkpoint_A")
+target_checkpoint = NodePath("Checkpoint_D")
+
+[node name="Checkpoint_A" parent="GuideNetwork" unique_id=855309603 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
+position = Vector2(153, 110)
+neighbors = [null]
+
+[node name="Checkpoint_B" parent="GuideNetwork" unique_id=575309188 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
+position = Vector2(578, 98)
+checkpoint_id = &"B"
+neighbors = [NodePath("../Checkpoint_A"), NodePath("../Checkpoint_C")]
+
+[node name="Checkpoint_C" parent="GuideNetwork" unique_id=205269631 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
+position = Vector2(144, 417)
+checkpoint_id = &"C"
+neighbors = [NodePath("../Checkpoint_B"), NodePath("../Checkpoint_D")]
+
+[node name="Checkpoint_D" parent="GuideNetwork" unique_id=1690089589 node_paths=PackedStringArray("neighbors") instance=ExtResource("3_rsyfn")]
+position = Vector2(661, 356)
+checkpoint_id = &"D"
+neighbors = [NodePath("../Checkpoint_C")]
+
+[node name="LightingSystem" parent="." unique_id=763427150 instance=ExtResource("3_eglq2")]
+position = Vector2(51, 48)
