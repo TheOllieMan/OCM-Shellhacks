@@ -188,9 +188,13 @@ script = ExtResource("4_a7lyv")
 health_component = NodePath("../../HealthComponent")
 
 [node name="Heart1" parent="HUD/HealthBar" unique_id=463771299 instance=ExtResource("4_r8mcl")]
+position = Vector2(-123.32249, -59.3225)
+scale = Vector2(2.315, 2.315)
 
 [node name="Heart2" parent="HUD/HealthBar" unique_id=1349616592 instance=ExtResource("4_r8mcl")]
-position = Vector2(22, 0)
+position = Vector2(-81.58749, -59.3225)
+scale = Vector2(2.315, 2.315)
 
 [node name="Heart3" parent="HUD/HealthBar" unique_id=976984162 instance=ExtResource("4_r8mcl")]
-position = Vector2(44, 0)
+position = Vector2(-39.49749, -59.3225)
+scale = Vector2(2.315, 2.315)
