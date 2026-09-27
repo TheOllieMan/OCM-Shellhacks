@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4s5kf66dsyt"]
 
 [ext_resource type="Script" uid="uid://bmhho7rkasesj" path="res://Scripts/Characters/Enemy.gd" id="1_54qrc"]
-[ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Sprite-0001.png" id="2_7algc"]
+[ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Characters/Sprite-0001.png" id="2_7algc"]
 [ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Components/Hurt_Component.gd" id="3_54qrc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yh4yq"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btg41xbhvqbq8"
-path="res://.godot/imported/Sprite-0001.png-c16feda97667151f1a063931ff67e2cc.ctex"
+uid="uid://b4j17wjuc3mow"
+path="res://.godot/imported/health_bar.png-da5bad0ed5ba60175c334a41acec8fe2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprite-0001.png"
-dest_files=["res://.godot/imported/Sprite-0001.png-c16feda97667151f1a063931ff67e2cc.ctex"]
+source_file="res://Assets/Characters/Hearts/PNG/health_bar/health_bar.png"
+dest_files=["res://.godot/imported/health_bar.png-da5bad0ed5ba60175c334a41acec8fe2.ctex"]
 
 [params]
 

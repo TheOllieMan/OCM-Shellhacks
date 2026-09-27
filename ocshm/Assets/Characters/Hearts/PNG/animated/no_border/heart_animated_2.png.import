@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6kpqp852tl8t"
-path="res://.godot/imported/Screenshot 2026-09-26 181933-Sheet-Sheet-Sheet-export.png-197bf52180010f4bb7db61d8f66beb3d.ctex"
+uid="uid://br1s8jchtci6o"
+path="res://.godot/imported/heart_animated_2.png-8d1a27626d8bc4849b4d8f803c772611.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Screenshot 2026-09-26 181933-Sheet-Sheet-Sheet-export.png"
-dest_files=["res://.godot/imported/Screenshot 2026-09-26 181933-Sheet-Sheet-Sheet-export.png-197bf52180010f4bb7db61d8f66beb3d.ctex"]
+source_file="res://Assets/Characters/Hearts/PNG/animated/no_border/heart_animated_2.png"
+dest_files=["res://.godot/imported/heart_animated_2.png-8d1a27626d8bc4849b4d8f803c772611.ctex"]
 
 [params]
 

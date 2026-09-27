@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5b3e8ya7py5v"
-path="res://.godot/imported/a-black-background-with-smoke-coming-out-of-it-free-photo.webp-63e9ddf1534554aa5104e7493826a414.ctex"
+uid="uid://bshkfyudo7l5u"
+path="res://.godot/imported/border.png-c018fbbde9afb4a48569142c35ca6622.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/a-black-background-with-smoke-coming-out-of-it-free-photo.webp"
-dest_files=["res://.godot/imported/a-black-background-with-smoke-coming-out-of-it-free-photo.webp-63e9ddf1534554aa5104e7493826a414.ctex"]
+source_file="res://Assets/Characters/Hearts/PNG/basic/border.png"
+dest_files=["res://.godot/imported/border.png-c018fbbde9afb4a48569142c35ca6622.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kaqqqqyjdvda"
-path="res://.godot/imported/ocm_menu_text_layer_1280x720 (1).png-6a4a6bd0e3bc41b38bb5dfc7a6873b97.ctex"
+uid="uid://ca6rer5ta13ug"
+path="res://.godot/imported/Water Background color-export.png-a20f9b771cf7a4374254b1771c8f8046.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ocm_menu_text_layer_1280x720 (1).png"
-dest_files=["res://.godot/imported/ocm_menu_text_layer_1280x720 (1).png-6a4a6bd0e3bc41b38bb5dfc7a6873b97.ctex"]
+source_file="res://Assets/Other/Water Background color-export.png"
+dest_files=["res://.godot/imported/Water Background color-export.png-a20f9b771cf7a4374254b1771c8f8046.ctex"]
 
 [params]
 

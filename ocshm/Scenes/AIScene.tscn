@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://3vwog81nrruh"]
 
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="1_t1d7a"]
-[ext_resource type="Texture2D" uid="uid://ca6rer5ta13ug" path="res://Assets/Water Background color-export.png" id="2_i2m38"]
-[ext_resource type="Texture2D" uid="uid://c5b3e8ya7py5v" path="res://Assets/a-black-background-with-smoke-coming-out-of-it-free-photo.webp" id="3_6rndf"]
-[ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Sprite-0001.png" id="4_uy427"]
+[ext_resource type="Texture2D" uid="uid://ca6rer5ta13ug" path="res://Assets/Other/Water Background color-export.png" id="2_i2m38"]
+[ext_resource type="Texture2D" uid="uid://c5b3e8ya7py5v" path="res://Assets/Menus/a-black-background-with-smoke-coming-out-of-it-free-photo.webp" id="3_6rndf"]
+[ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Characters/Sprite-0001.png" id="4_uy427"]
 [ext_resource type="Script" uid="uid://l457r142po8o" path="res://Scripts/Characters/CharacterScript.gd" id="4_wlos1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uy427"]
