@@ -35,6 +35,7 @@ label_settings = SubResource("LabelSettings_7w7ni")
 horizontal_alignment = 1
 
 [node name="DoorSprite" type="Sprite2D" parent="." unique_id=1298558100]
+visible = false
 texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_w6aom")
 metadata/_aseprite_wizard_interface_config_ = {
