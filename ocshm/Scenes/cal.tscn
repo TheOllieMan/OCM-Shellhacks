@@ -151,6 +151,7 @@ size = Vector2(4.0524435, 5.005961)
 [node name="Cal" type="CharacterBody2D" unique_id=1774389727 groups=["player"]]
 scale = Vector2(12.585, 12.585)
 script = ExtResource("1_fl0g7")
+main_menu_scene = "uid://cghqg6hhtp4u4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803760199]
 visible = false

@@ -6,6 +6,8 @@ extends CharacterBody2D
 #@onready var key_icon = $HUD/KeyIcon
 @onready var health_component: HealthComponent = ($HealthComponent)
 #@onready var _animation_player = $AnimationPlayer
+@export_file("*.tscn")
+var main_menu_scene: String
 
 #var has_key := false:
 	#set(value):
@@ -63,6 +65,16 @@ func Animate():
 # Move and handle collisions
 func _on_died() -> void:
 	print("Cal died.")
+
+	# Stop the player from continuing to move/interact.
+	set_physics_process(false)
+	set_process_input(false)
+	set_process_unhandled_input(false)
+
+	# Load the main menu through our loading-screen system.
+	SceneLoader.load_scene(
+		main_menu_scene
+	)
 
 func _unhandled_input(
 	event: InputEvent
