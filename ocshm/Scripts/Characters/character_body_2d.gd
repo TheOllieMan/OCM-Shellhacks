@@ -10,6 +10,10 @@ extends CharacterBody2D
 var main_menu_scene: String
 
 @onready var camera: Camera2D = $Camera2D
+@onready var attack_hitbox: AttackHitbox = ($AttackHitbox)
+
+var is_attacking: bool = false
+var facing_direction: Vector2 = Vector2.DOWN
 
 #var has_key := false:
 	#set(value):
@@ -23,47 +27,52 @@ func _ready() -> void:
 	health_component.died.connect(_on_died)
 	#key_icon.visible = false
 
-func _physics_process(delta):
-	
+func _physics_process(_delta: float) -> void:
 	velocity = Vector2.ZERO
 
-	Animate()
+	_handle_movement()
 
+	if velocity != Vector2.ZERO:
+		velocity = velocity.normalized() * speed
+		move_and_slide()
 
-	if velocity == Vector2.ZERO:
+	# Do NOT stop the sprite while an attack animation is playing.
+	elif not is_attacking:
 		animated_sprite.stop()
-		return
-
-
-	# Set velocity based on direction and speed
-	velocity = velocity.normalized() * speed
-	
-
-	move_and_slide()
 
 #Movement Animations
-func Animate():
+func _handle_movement() -> void:
 
-#Up
 	if Input.is_action_pressed("Up"):
 		velocity.y -= 1
-		animated_sprite.play("Walk_Up")
+		facing_direction = Vector2.UP
 
-#Left
+		if not is_attacking:
+			animated_sprite.play("Walk_Up")
+
+
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= 1
-		animated_sprite.play("Walk_Left")
+		facing_direction = Vector2.LEFT
 
-#Right
+		if not is_attacking:
+			animated_sprite.play("Walk_Left")
+
+
 	elif Input.is_action_pressed("Right"):
 		velocity.x += 1
-		animated_sprite.play("Walk_Right")
-		$AnimatedSprite2D.flip_h = false
+		facing_direction = Vector2.RIGHT
 
-#Down
+		if not is_attacking:
+			animated_sprite.play("Walk_Right")
+
+
 	elif Input.is_action_pressed("Down"):
 		velocity.y += 1
-		animated_sprite.play("Walk_Down")
+		facing_direction = Vector2.DOWN
+
+		if not is_attacking:
+			animated_sprite.play("Walk_Down")
 
 # Move and handle collisions
 func _on_died() -> void:
@@ -79,11 +88,48 @@ func _on_died() -> void:
 		main_menu_scene
 	)
 
-func _unhandled_input(
-	event: InputEvent
-) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("attack"):
+		_attack()
 
-	if event.is_action_pressed(
-		"test_damage"
-	):
-		$HurtboxComponent.take_hit(1)
+
+func _attack() -> void:
+	if is_attacking:
+		return
+
+	is_attacking = true
+
+	_position_attack_hitbox()
+
+	match facing_direction:
+
+		Vector2.UP:
+			animated_sprite.play("Attack_Up")
+
+		Vector2.DOWN:
+			animated_sprite.play("Attack_Down")
+
+		Vector2.LEFT:
+			animated_sprite.play("Attack_Left")
+
+		Vector2.RIGHT:
+			animated_sprite.play("Attack_Right")
+
+
+	attack_hitbox.begin_attack()
+
+	await animated_sprite.animation_finished
+
+	attack_hitbox.end_attack()
+
+	is_attacking = false
+	
+
+func _position_attack_hitbox() -> void:
+
+	var attack_distance: float = 24.0
+
+	attack_hitbox.position = (
+		facing_direction
+		* attack_distance
+	)

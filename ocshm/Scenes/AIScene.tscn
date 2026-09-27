@@ -894,9 +894,8 @@ rotation = -1.5707961
 scale = Vector2(1.0217999, 1.185)
 shape = SubResource("RectangleShape2D_5nabn")
 
-[node name="Enemy" parent="." unique_id=652224671 node_paths=PackedStringArray("player") instance=ExtResource("4_5nabn")]
+[node name="Enemy" parent="." unique_id=652224671 instance=ExtResource("4_5nabn")]
 position = Vector2(221, -925)
-player = NodePath("../Cal")
 
 [node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("1_t1d7a")]
 position = Vector2(394, -252)

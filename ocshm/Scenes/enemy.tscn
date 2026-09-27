@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://l457r142po8o" path="res://Scripts/Characters/CharacterScript.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Characters/Sprite-0001.png" id="2_afpow"]
 [ext_resource type="Script" uid="uid://b4xmnwbqxa7xf" path="res://Scripts/Characters/Contact_Damage.gd" id="3_afpow"]
+[ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Components/Hurt_Component.gd" id="4_287tu"]
+[ext_resource type="Script" uid="uid://dpt5sxe5u706f" path="res://Scripts/Components/HealthComponent.gd" id="5_0830c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nabn"]
 atlas = ExtResource("2_afpow")
@@ -22,10 +24,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpaef"]
 radius = 10.240392
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_shqcg"]
+radius = 13.795861
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yh4yq"]
 radius = 11.586206
 
-[node name="Enemy" type="CharacterBody2D" unique_id=652224671]
+[node name="Enemy" type="CharacterBody2D" unique_id=652224671 groups=["room_enemies"]]
 position = Vector2(-9, -595)
 scale = Vector2(3.625, 3.625)
 script = ExtResource("1_1f0kj")
@@ -41,6 +46,18 @@ target_desired_distance = 20.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1800574469]
 autostart = true
+
+[node name="HealthComponent" type="Node" parent="." unique_id=45438251]
+script = ExtResource("5_0830c")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=648533619 node_paths=PackedStringArray("health_component")]
+collision_layer = 4
+script = ExtResource("4_287tu")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=508433095]
+shape = SubResource("CircleShape2D_shqcg")
+debug_color = Color(0.32989222, 0.5263572, 0.16546336, 0.41960785)
 
 [node name="ContactDamage" type="Area2D" parent="." unique_id=571173900]
 collision_mask = 2

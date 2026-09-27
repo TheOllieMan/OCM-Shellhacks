@@ -1,14 +1,51 @@
 [gd_scene format=3 uid="uid://c16hp6g0kycie"]
 
-[ext_resource type="Script" uid="uid://cbj12kdy6c44e" path="res://Scripts/Characters/character_body_2d.gd" id="1_fl0g7"]
+[ext_resource type="Script" uid="uid://du5agxkuc3aog" path="res://Scripts/Characters/character_body_2d.gd" id="1_fl0g7"]
+[ext_resource type="Texture2D" uid="uid://c8jfw2dcd1lk1" path="res://Assets/Characters/Cal/Cal-Attack-Forward-Sheet.png" id="2_n86ds"]
 [ext_resource type="Texture2D" uid="uid://c1t62je1q8try" path="res://Assets/Characters/Cal/CharacterCal0007.png" id="2_p1foo"]
 [ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Components/Hurt_Component.gd" id="3_1usvj"]
 [ext_resource type="Script" uid="uid://dpt5sxe5u706f" path="res://Scripts/Components/HealthComponent.gd" id="3_p1foo"]
+[ext_resource type="Texture2D" uid="uid://cthbqu63xun4k" path="res://Assets/Characters/Cal/Cal-Attack-Left-Sheet.png" id="3_pnpff"]
 [ext_resource type="Script" uid="uid://bcl8mnwxbaxlq" path="res://Scripts/UI/Health_bar.gd" id="4_a7lyv"]
 [ext_resource type="PackedScene" uid="uid://d25v4leaapfg1" path="res://Scenes/heart_icon.tscn" id="4_r8mcl"]
+[ext_resource type="Texture2D" uid="uid://50mpho7xfpdg" path="res://Assets/Characters/Cal/Cal-Attack-Right-Sheet.png" id="4_v3053"]
+[ext_resource type="Texture2D" uid="uid://ck5fca4s7css3" path="res://Assets/Characters/Cal/Cal-Attack-Backward-Sheet.png" id="5_oq3co"]
+[ext_resource type="Script" uid="uid://cd0b82khb0pfn" path="res://Scenes/Attack_Hitbox.gd" id="5_p46tr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1usvj"]
 size = Vector2(4, 3.0989273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfoh5"]
+atlas = ExtResource("2_n86ds")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gko7"]
+atlas = ExtResource("2_n86ds")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1tb4"]
+atlas = ExtResource("3_pnpff")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_883ky"]
+atlas = ExtResource("3_pnpff")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n0kb"]
+atlas = ExtResource("4_v3053")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42x7q"]
+atlas = ExtResource("4_v3053")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pux2f"]
+atlas = ExtResource("5_oq3co")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wy3o"]
+atlas = ExtResource("5_oq3co")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p46tr"]
 atlas = ExtResource("2_p1foo")
@@ -74,8 +111,52 @@ region = Rect2(64, 128, 32, 32)
 atlas = ExtResource("2_p1foo")
 region = Rect2(96, 128, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tflj3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcc7m"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfoh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gko7")
+}],
+"loop": 1,
+"name": &"Attack_Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1tb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_883ky")
+}],
+"loop": 1,
+"name": &"Attack_Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n0kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42x7q")
+}],
+"loop": 1,
+"name": &"Attack_Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pux2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wy3o")
+}],
+"loop": 1,
+"name": &"Attack_Up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p46tr")
@@ -148,6 +229,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shqcg"]
 size = Vector2(4.0524445, 3.098929)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh4yq"]
+size = Vector2(4.1319036, 3.1783872)
+
 [node name="Cal" type="CharacterBody2D" unique_id=1774389727 groups=["player"]]
 scale = Vector2(12.585, 12.585)
 script = ExtResource("1_fl0g7")
@@ -159,10 +243,30 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_1usvj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1351705411]
+texture_filter = 1
 scale = Vector2(0.128, 0.096)
-sprite_frames = SubResource("SpriteFrames_tflj3")
-animation = &"Walk_Down"
-frame_progress = 0.38958323
+sprite_frames = SubResource("SpriteFrames_hcc7m")
+animation = &"Walk_Left"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://Assets/Characters/Cal/Cal-Attack-Forward-Sheet.aseprite",
+"source_uid": 8785370629136401750
+}
+metadata/_aseprite_wizard_source_file_hash_ = "446da2a65426dc731b1670a270a7b29e"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=364996312]
 zoom = Vector2(1.55, 1.55)
@@ -182,6 +286,17 @@ position = Vector2(-0.039728917, -0.039729863)
 scale = Vector2(0.9999992, 0.9999992)
 shape = SubResource("RectangleShape2D_shqcg")
 debug_color = Color(0.7820103, 0.25375226, 0.4084226, 0.41960785)
+
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=669868849]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("5_p46tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=2061832243]
+position = Vector2(-4.211363, 0)
+shape = SubResource("RectangleShape2D_yh4yq")
+debug_color = Color(0.623003, 0.5320719, 0.09969131, 0.41960785)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2112558121]
 
