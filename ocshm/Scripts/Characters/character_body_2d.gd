@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export_file("*.tscn")
 var main_menu_scene: String
 
+@onready var camera: Camera2D = $Camera2D
+
 #var has_key := false:
 	#set(value):
 		#has_key = value
@@ -16,7 +18,9 @@ var main_menu_scene: String
 			#key_icon.visible = value
 
 func _ready() -> void:
-		health_component.died.connect(_on_died)
+	camera.enabled = true
+	camera.make_current()
+	health_component.died.connect(_on_died)
 	#key_icon.visible = false
 
 func _physics_process(delta):

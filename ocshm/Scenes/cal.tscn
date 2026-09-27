@@ -171,8 +171,10 @@ script = ExtResource("3_p1foo")
 max_health = 6
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=224328948 node_paths=PackedStringArray("health_component")]
+collision_layer = 2
 script = ExtResource("3_1usvj")
 health_component = NodePath("../HealthComponent")
+use_invulnerability = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1473399492]
 position = Vector2(-0.03972948, 0.4370282)

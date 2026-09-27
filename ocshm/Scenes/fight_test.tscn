@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d0xfeesu5avl"]
+
+[ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="1_05nrr"]
+[ext_resource type="PackedScene" uid="uid://3vwog81nrruh" path="res://Scenes/AIScene.tscn" id="2_05nrr"]
+
+[node name="FightTest" type="Node2D" unique_id=1091312083]
+
+[node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("1_05nrr")]
+position = Vector2(703, 245)
+
+[node name="World" parent="." unique_id=1275164589 instance=ExtResource("2_05nrr")]
+position = Vector2(206, 542)
