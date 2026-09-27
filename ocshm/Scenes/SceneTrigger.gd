@@ -11,6 +11,6 @@ func _on_body_entered(body):
 		return
 
 	if GameState.key_count() >= keys_needed:
-		get_tree().change_scene_to_file.call_deferred(next_scene)
+		get_tree().change_scene_to_file("res://Scenes/WinScreen.tscn")
 	else:
 		print("Need ", keys_needed, " keys. You have ", GameState.key_count())

@@ -216,7 +216,7 @@ shape = SubResource("RectangleShape2D_4ttvm")
 [node name="Door" parent="DoorRight" unique_id=1341399856 instance=ExtResource("8_qlsyl")]
 position = Vector2(-33, 294.00003)
 scale = Vector2(2.4694924, 2.4694924)
-destination_scene = "uid://frg67vac5scn"
+destination_scene = "uid://bcoaxy0576rdg"
 keys_needed = 3
 
 [node name="DoorDown" type="StaticBody2D" parent="." unique_id=178628974]
