@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 #@onready var _animation_player = $AnimationPlayer
-var has_key := false
+#var has_key := false
 
 func _physics_process(delta):
 	
