@@ -7,6 +7,8 @@ var destination_scene: String
 
 @export var destination_spawn_id: StringName
 
+@export var keys_needed: int = 0  # 0 = not locked
+
 
 @onready var prompt_layer: CanvasLayer = $PromptLayer
 
@@ -49,9 +51,17 @@ func _on_body_exited(body: Node2D) -> void:
 	prompt_layer.visible = false
 
 
+func is_locked() -> bool:
+	return GameState.key_count() < keys_needed
+
+
 func _enter_door() -> void:
 	if destination_scene.is_empty():
 		push_error("Door has no destination scene.")
+		return
+
+	if is_locked():
+		print("Locked. Need ", keys_needed, " keys. You have ", GameState.key_count())
 		return
 
 	transitioning = true

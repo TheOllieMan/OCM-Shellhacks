@@ -1,4 +1,4 @@
-class_name KeyPickup
+#class_name KeyPickup
 extends Area2D
 
 

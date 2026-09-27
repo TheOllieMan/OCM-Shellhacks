@@ -217,7 +217,8 @@ scale = Vector2(3.1775353, 3.1775353)
 hidden_key = NodePath("../Key")
 
 [node name="Key" parent="." unique_id=393332875 instance=ExtResource("10_ao5lj")]
-key_id = &"key_3"
+position = Vector2(549, 174)
+key_id = &"key2"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=912247223]
 visible = false

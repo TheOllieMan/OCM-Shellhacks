@@ -217,6 +217,7 @@ shape = SubResource("RectangleShape2D_4ttvm")
 position = Vector2(-33, 294.00003)
 scale = Vector2(2.4694924, 2.4694924)
 destination_scene = "uid://frg67vac5scn"
+keys_needed = 3
 
 [node name="DoorDown" type="StaticBody2D" parent="." unique_id=178628974]
 visible = false
