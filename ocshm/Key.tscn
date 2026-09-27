@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b68k801tnq7ua"]
+
+[ext_resource type="Script" uid="uid://b6qelvfkwbeag" path="res://Scripts/Objects/keyscript.gd" id="1_3nogi"]
+[ext_resource type="Texture2D" uid="uid://bidh6ejfj2tyk" path="res://Assets/Other/Key1.png" id="2_40kd0"]
+[ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="3_40kd0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uuc0u"]
+radius = 47.0
+
+[node name="Node2D" type="Node2D" unique_id=1917753438]
+position = Vector2(855, 281)
+
+[node name="Key" type="Area2D" parent="." unique_id=2102614271]
+script = ExtResource("1_3nogi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=916451433]
+position = Vector2(23, -29)
+scale = Vector2(5.75, 5.75)
+texture = ExtResource("2_40kd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=2042287384]
+position = Vector2(20, -26)
+shape = SubResource("CircleShape2D_uuc0u")
+
+[node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("3_40kd0")]
+position = Vector2(-292.99997, 48.999996)
+
+[node name="HUD" type="CanvasLayer" parent="Cal" unique_id=1906210653]
+
+[node name="KeyIcon" type="TextureRect" parent="Cal/HUD" unique_id=1665983681]
+anchors_preset = -1
+anchor_right = 0.1593611
+anchor_bottom = 0.40686423
+offset_left = 533.0
+offset_top = 481.0
+offset_right = 409.41602
+offset_bottom = 277.352
+texture = ExtResource("2_40kd0")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Cal/HUD/KeyIcon" unique_id=167412195]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -3.0
+offset_top = -1.9999962
+offset_right = 60.0
+offset_bottom = 61.96924

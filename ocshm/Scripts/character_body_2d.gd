@@ -3,17 +3,8 @@ extends CharacterBody2D
 @export var speed = 400
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var key_icon = $HUD/KeyIcon
 #@onready var _animation_player = $AnimationPlayer
-
-var has_key := false:
-	set(value):
-		has_key = value
-		if key_icon:
-			key_icon.visible = value
-
-func _ready():
-	key_icon.visible = false
+var has_key := false
 
 func _physics_process(delta):
 	
