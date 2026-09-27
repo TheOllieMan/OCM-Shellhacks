@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cbiq0m1abintl"]
 
 [ext_resource type="Shader" uid="uid://cl74rcnibv1gj" path="res://Shaders/Lighting/destination_beacon.gdshader" id="1_iojlr"]
-[ext_resource type="Script" uid="uid://bprd1w600vpfj" path="res://Scenes/destination_beacon.gd" id="1_q7q23"]
+[ext_resource type="Script" uid="uid://bprd1w600vpfj" path="res://Scripts/Environment/destination_beacon.gd" id="1_q7q23"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lktjg"]
 shader = ExtResource("1_iojlr")

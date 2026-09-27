@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://wuxggq002l28"]
 
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="1_dtjkg"]
-[ext_resource type="Script" uid="uid://t4wt071hqgxm" path="res://Scripts/guide_network.gd" id="1_iti4p"]
+[ext_resource type="Script" uid="uid://t4wt071hqgxm" path="res://Scripts/Environment/guide_network.gd" id="1_iti4p"]
 [ext_resource type="PackedScene" uid="uid://46ba0fkrpgap" path="res://Scenes/lighting_system.tscn" id="3_eglq2"]
 [ext_resource type="PackedScene" uid="uid://bfofnrqqygwl1" path="res://Scenes/guide_checkpoint.tscn" id="3_rsyfn"]
+[ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="5_7w7ni"]
 
 [node name="TestLevel" type="Node" unique_id=91408135]
 
@@ -45,3 +46,9 @@ neighbors = [NodePath("../Checkpoint_C")]
 
 [node name="LightingSystem" parent="." unique_id=763427150 instance=ExtResource("3_eglq2")]
 position = Vector2(51, 48)
+
+[node name="Door" parent="." unique_id=1069027678 instance=ExtResource("5_7w7ni")]
+position = Vector2(847, 120)
+scale = Vector2(2.175, 2.175)
+destination_scene = "uid://dtsd3vjurled6"
+destination_spawn_id = &"TestLevel2"

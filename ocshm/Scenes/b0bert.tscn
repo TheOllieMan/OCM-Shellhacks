@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://4s5kf66dsyt"]
 
-[ext_resource type="Script" uid="uid://bmhho7rkasesj" path="res://Scripts/Enemy.gd" id="1_cmmig"]
-[ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Sprite-0001.png" id="2_bvj4n"]
-[ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Hurt_Component.gd" id="3_450dr"]
+[ext_resource type="Script" uid="uid://bmhho7rkasesj" path="res://Scripts/Characters/Enemy.gd" id="1_54qrc"]
+[ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Sprite-0001.png" id="2_7algc"]
+[ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Components/Hurt_Component.gd" id="3_54qrc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yh4yq"]
 radius = 9.0
@@ -11,10 +11,10 @@ radius = 9.0
 radius = 9.0
 
 [node name="B0bert" type="Node2D" unique_id=1895141736]
-script = ExtResource("1_cmmig")
+script = ExtResource("1_54qrc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=887435038]
-texture = ExtResource("2_bvj4n")
+texture = ExtResource("2_7algc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=168114735]
 
@@ -22,7 +22,7 @@ texture = ExtResource("2_bvj4n")
 shape = SubResource("CircleShape2D_yh4yq")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1274008830]
-script = ExtResource("3_450dr")
+script = ExtResource("3_54qrc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=67516584]
 shape = SubResource("CircleShape2D_shqcg")

@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dtsd3vjurled6"]
 
+[ext_resource type="PackedScene" uid="uid://bdpc57gq8iqni" path="res://Scenes/scene_spawn_point.tscn" id="1_cu7ek"]
+[ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="2_qpu34"]
+
 [node name="TestLevel2" type="Node2D" unique_id=2014037919]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1596968301]
@@ -7,3 +10,10 @@ offset_left = -10.0
 offset_top = -8.0
 offset_right = 1142.0
 offset_bottom = 668.0
+
+[node name="SceneSpawnPoint" parent="." unique_id=1320592347 instance=ExtResource("1_cu7ek")]
+position = Vector2(70, 88)
+spawn_id = &"TestLevel2"
+
+[node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("2_qpu34")]
+position = Vector2(75, 86)

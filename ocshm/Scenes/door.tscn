@@ -1,0 +1,64 @@
+[gd_scene format=4 uid="uid://itiwkj03qkdj"]
+
+[ext_resource type="Script" uid="uid://rlrvj8jqanjn" path="res://Scripts/Objects/door.gd" id="1_w6aom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6aom"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xq3o0"]
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.40392157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7w7ni"]
+font_size = 92
+outline_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
+shadow_color = Color(0.05882353, 0.09019608, 0.06666667, 0)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_w6aom"]
+_data = PackedByteArray("AAADAAUAAAABAAAAIAAAACAAAADcAAAAUklGRtQAAABXRUJQVlA4TMcAAAAvH8AHEG+gppEUaI9PADUdHf4lIUoxI0lQj8v812fZVm49LjWNpED3lVDhABf4V4ITBW2jQAU04N/oFwCX945MrBgqQi6tlm/bU4AExNcPoOE2kmRX+RbSkgmoCL4KAHEvAvYSAA/rv83gn088WOQG99DYEf2fgOwvPB3vdrw9lSAOHgmKAQkm9hhMJIEwtBK8liComqLEbBTSdDQSLxIRqzk83hAhRSMMmmTClEiYUOFcm6Zmzbp2sjxf5+s8z723PV+GL/pQAA==")
+size_override = Vector2(32, 32)
+
+[node name="Door" type="Area2D" unique_id=1069027678]
+script = ExtResource("1_w6aom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1136027693]
+shape = SubResource("RectangleShape2D_w6aom")
+
+[node name="PromptLayer" type="CanvasLayer" parent="." unique_id=185205475]
+
+[node name="Prompt" type="Label" parent="PromptLayer" unique_id=613404943]
+offset_left = 191.0
+offset_top = 511.0
+offset_right = 885.0
+offset_bottom = 637.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xq3o0")
+text = "Press E to enter"
+label_settings = SubResource("LabelSettings_7w7ni")
+horizontal_alignment = 1
+
+[node name="DoorSprite" type="Sprite2D" parent="." unique_id=1298558100]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_w6aom")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://Assets/Door.aseprite",
+"source_uid": 7827205956392709377
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e1eabeb46980b7e829cf6affa1e38c29"

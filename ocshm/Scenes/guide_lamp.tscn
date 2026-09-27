@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cv767qd55i3af"]
 
-[ext_resource type="Script" uid="uid://c8wh8b4ame1yb" path="res://guide_lamp.gd" id="1_m82kd"]
-[ext_resource type="Shader" uid="uid://u0wpx1ii3akx" path="res://Scenes/guide_lamp_glow.gdshader" id="2_bm3ua"]
+[ext_resource type="Script" uid="uid://c8wh8b4ame1yb" path="res://Scripts/Environment/guide_lamp.gd" id="1_m82kd"]
+[ext_resource type="Shader" uid="uid://u0wpx1ii3akx" path="res://Shaders/Lighting/guide_lamp_glow.gdshader" id="2_bm3ua"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hooog"]
 shader = ExtResource("2_bm3ua")

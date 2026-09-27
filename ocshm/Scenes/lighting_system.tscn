@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://46ba0fkrpgap"]
 
-[ext_resource type="Script" uid="uid://g6t8b8ucs0yl" path="res://Scripts/GuidePathRenderer.gd" id="1_f5vak"]
-[ext_resource type="Script" uid="uid://j5jcny2ad6nb" path="res://Scripts/LightingSystem.gd" id="1_hnodf"]
+[ext_resource type="Script" uid="uid://g6t8b8ucs0yl" path="res://Scripts/Environment/GuidePathRenderer.gd" id="1_f5vak"]
+[ext_resource type="Script" uid="uid://j5jcny2ad6nb" path="res://Scripts/Managers/LightingSystem.gd" id="1_hnodf"]
 [ext_resource type="Shader" uid="uid://e0kaqmhihrme" path="res://Shaders/Lighting/gudie_glow.gdshader" id="1_iawgw"]
 [ext_resource type="PackedScene" uid="uid://cv767qd55i3af" path="res://Scenes/guide_lamp.tscn" id="2_jg8lg"]
 [ext_resource type="PackedScene" uid="uid://cbiq0m1abintl" path="res://Scenes/destination_beacon.tscn" id="4_lktjg"]

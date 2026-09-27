@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfofnrqqygwl1"]
 
-[ext_resource type="Script" uid="uid://dgihstq4vhk3t" path="res://Scripts/GuideCheckpoint.gd" id="1_pi7kf"]
+[ext_resource type="Script" uid="uid://dgihstq4vhk3t" path="res://Scripts/Environment/GuideCheckpoint.gd" id="1_pi7kf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8unna"]
 

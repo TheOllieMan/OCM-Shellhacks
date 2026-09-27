@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://jbdfefum1txk"]
 
-[ext_resource type="Script" uid="uid://bmhho7rkasesj" path="res://Scripts/Enemy.gd" id="1_cmmig"]
+[ext_resource type="Script" uid="uid://bmhho7rkasesj" path="res://Scripts/Characters/Enemy.gd" id="1_cmmig"]
 [ext_resource type="Texture2D" uid="uid://btg41xbhvqbq8" path="res://Assets/Sprite-0001.png" id="2_bvj4n"]
-[ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Hurt_Component.gd" id="3_450dr"]
+[ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Components/Hurt_Component.gd" id="3_450dr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yh4yq"]
 radius = 9.0
