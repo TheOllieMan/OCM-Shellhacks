@@ -3,11 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://gjijcmnmfcma" path="res://Assets/Environement/Warehouse Assests.png" id="1_etakg"]
 [ext_resource type="Texture2D" uid="uid://edc1xhj7nmm6" path="res://Assets/Environement/Stone.png" id="2_fpd7d"]
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="3_8osih"]
-[ext_resource type="Script" uid="uid://btbffoai8rxhn" path="res://Scenes/SceneTrigger.gd" id="4_fpd7d"]
+[ext_resource type="Script" uid="uid://btbffoai8rxhn" path="res://Scripts/AutoLoader/SceneTrigger.gd" id="4_fpd7d"]
 [ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="5_805bh"]
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="5_fln0o"]
 [ext_resource type="PackedScene" uid="uid://b456aj7y3a45g" path="res://Scenes/enemy.tscn" id="7_805bh"]
 [ext_resource type="PackedScene" uid="uid://brh44ug2imamr" path="res://Scripts/Objects/key.tscn" id="8_e7e2g"]
+[ext_resource type="Script" uid="uid://coyswcihfgb1m" path="res://Scripts/AutoLoader/Room_Controller.gd" id="9_0yg2e"]
+[ext_resource type="AudioStream" uid="uid://dox30t24x6h1n" path="res://Assets/Audio/Music/Fighting Robots.wav" id="10_433aa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fln0o"]
 texture = ExtResource("1_etakg")
@@ -206,7 +208,7 @@ destination_scene = "uid://dv7nu2u5r1em3"
 
 [node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("5_fln0o")]
 position = Vector2(470, 73.999985)
-scale = Vector2(4.43157, 4.43157)
+scale = Vector2(6.397, 6.397)
 
 [node name="Enemy" parent="." unique_id=652224671 node_paths=PackedStringArray("hidden_key") instance=ExtResource("7_805bh")]
 position = Vector2(409.00003, 400)
@@ -222,3 +224,10 @@ key_id = &"Key3"
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2106062045]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_805bh")
+
+[node name="Room Controller" type="Node2D" parent="." unique_id=209579965 node_paths=PackedStringArray("music_player")]
+script = ExtResource("9_0yg2e")
+music_player = NodePath("Music")
+
+[node name="Music" type="AudioStreamPlayer" parent="Room Controller" unique_id=1871881623]
+stream = ExtResource("10_433aa")

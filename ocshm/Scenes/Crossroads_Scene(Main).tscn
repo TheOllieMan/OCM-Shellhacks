@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://edc1xhj7nmm6" path="res://Assets/Environement/Stone.png" id="2_trllh"]
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="3_1on7m"]
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="5_1on7m"]
-[ext_resource type="Script" uid="uid://btbffoai8rxhn" path="res://Scenes/SceneTrigger.gd" id="7_pk4a6"]
+[ext_resource type="Script" uid="uid://btbffoai8rxhn" path="res://Scripts/AutoLoader/SceneTrigger.gd" id="7_pk4a6"]
 [ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="8_qlsyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spw8f"]

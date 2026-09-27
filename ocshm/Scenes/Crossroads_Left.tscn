@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="3_o52rf"]
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="5_sygud"]
 [ext_resource type="PackedScene" uid="uid://brh44ug2imamr" path="res://Scripts/Objects/key.tscn" id="6_sygud"]
+[ext_resource type="Script" uid="uid://coyswcihfgb1m" path="res://Scripts/AutoLoader/Room_Controller.gd" id="8_dmqbr"]
+[ext_resource type="AudioStream" uid="uid://dox30t24x6h1n" path="res://Assets/Audio/Music/Fighting Robots.wav" id="8_j6jxx"]
 [ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="8_ns3bf"]
 [ext_resource type="PackedScene" uid="uid://b456aj7y3a45g" path="res://Scenes/enemy.tscn" id="9_j6jxx"]
 
@@ -162,7 +164,7 @@ shape = SubResource("RectangleShape2D_u74sv")
 [node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("5_sygud")]
 position = Vector2(30, 289)
 rotation = -3.1415925
-scale = Vector2(4.43157, 4.43157)
+scale = Vector2(7.68, 7.68)
 
 [node name="Door" parent="." unique_id=1069027678 instance=ExtResource("8_ns3bf")]
 visible = false
@@ -171,7 +173,6 @@ scale = Vector2(1.962406, 3.5299356)
 destination_scene = "uid://dv7nu2u5r1em3"
 
 [node name="Key" parent="." unique_id=393332875 instance=ExtResource("6_sygud")]
-visible = true
 position = Vector2(789, 479)
 key_id = &"key_1"
 
@@ -183,3 +184,10 @@ hidden_key = NodePath("../Key")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1423377926]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_uuc0u")
+
+[node name="RoomController" type="Node2D" parent="." unique_id=1092314881 node_paths=PackedStringArray("music_player")]
+script = ExtResource("8_dmqbr")
+music_player = NodePath("Music")
+
+[node name="Music" type="AudioStreamPlayer" parent="RoomController" unique_id=769062530]
+stream = ExtResource("8_j6jxx")

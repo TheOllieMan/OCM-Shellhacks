@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="1_y84gu"]
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="2_lt6kj"]
 [ext_resource type="PackedScene" uid="uid://b456aj7y3a45g" path="res://Scenes/enemy.tscn" id="3_8hpjq"]
-[ext_resource type="Script" uid="uid://coyswcihfgb1m" path="res://Scenes/Room_Controller.gd" id="3_d2rwr"]
+[ext_resource type="Script" uid="uid://coyswcihfgb1m" path="res://Scripts/AutoLoader/Room_Controller.gd" id="3_d2rwr"]
 [ext_resource type="PackedScene" uid="uid://b68k801tnq7ua" path="res://Scenes/Key.tscn" id="5_6s3ww"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y84gu"]
