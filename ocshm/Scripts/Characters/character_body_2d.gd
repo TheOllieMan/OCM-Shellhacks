@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 200
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var key_icon = $HUD/KeyIcon

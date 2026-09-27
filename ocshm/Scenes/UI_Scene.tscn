@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6kpqp852tl8t" path="res://Assets/Other/Screenshot 2026-09-26 181933-Sheet-Sheet-Sheet-export.png" id="2_1avqd"]
 [ext_resource type="Script" uid="uid://dt0v2euywc022" path="res://Scenes/MenuOCMscript.gd" id="3_xkyul"]
 [ext_resource type="AudioStream" uid="uid://dpvp7h0kkpcjv" path="res://Assets/Audio/button-click-sound-effect.wav" id="4_xkyul"]
+[ext_resource type="AudioStream" uid="uid://0utc1nn0aaau" path="res://Assets/Audio/POL-the-foyer-short.wav" id="5_ikvxp"]
 
 [node name="Main_Menu" type="Node2D" unique_id=85026193]
 position = Vector2(139, 97)
@@ -59,6 +60,10 @@ script = ExtResource("3_xkyul")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1776736116]
 stream = ExtResource("4_xkyul")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=1182862571]
+stream = ExtResource("5_ikvxp")
+autoplay = true
 
 [connection signal="pressed" from="Button_Manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button_Manager/Options" to="." method="_on_options_pressed"]
