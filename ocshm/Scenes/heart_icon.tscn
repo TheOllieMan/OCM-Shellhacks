@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d25v4leaapfg1"]
+
+[ext_resource type="Texture2D" uid="uid://b0ta2gd20gyb3" path="res://Assets/Characters/Hearts/PNG/animated/border/heart_animated_2.png" id="1_gwf01"]
+[ext_resource type="Script" uid="uid://f63vfrnxi4oy" path="res://Scripts/UI/Heart_Icon.gd" id="2_2nl2c"]
+
+[node name="HeartIcon" type="Sprite2D" unique_id=463771299]
+texture = ExtResource("1_gwf01")
+hframes = 5
+script = ExtResource("2_2nl2c")

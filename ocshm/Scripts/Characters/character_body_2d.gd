@@ -3,17 +3,19 @@ extends CharacterBody2D
 @export var speed = 400
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var key_icon = $HUD/KeyIcon
+#@onready var key_icon = $HUD/KeyIcon
+@onready var health_component: HealthComponent = ($HealthComponent)
 #@onready var _animation_player = $AnimationPlayer
 
-var has_key := false:
-	set(value):
-		has_key = value
-		if key_icon:
-			key_icon.visible = value
+#var has_key := false:
+	#set(value):
+		#has_key = value
+		#if key_icon:
+			#key_icon.visible = value
 
-func _ready():
-	key_icon.visible = false
+func _ready() -> void:
+		health_component.died.connect(_on_died)
+	#key_icon.visible = false
 
 func _physics_process(delta):
 	
@@ -59,3 +61,14 @@ func Animate():
 		animated_sprite.play("Walk_Down")
 
 # Move and handle collisions
+func _on_died() -> void:
+	print("Cal died.")
+
+func _unhandled_input(
+	event: InputEvent
+) -> void:
+
+	if event.is_action_pressed(
+		"test_damage"
+	):
+		$HurtboxComponent.take_hit(1)

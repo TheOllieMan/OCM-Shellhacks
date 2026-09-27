@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cbj12kdy6c44e" path="res://Scripts/Characters/character_body_2d.gd" id="1_fl0g7"]
 [ext_resource type="Texture2D" uid="uid://c84lwdk7nteoo" path="res://Assets/Characters/walk.png" id="1_tflj3"]
+[ext_resource type="Script" uid="uid://dtblndgiqxe0u" path="res://Scripts/Components/Hurt_Component.gd" id="3_1usvj"]
+[ext_resource type="Script" uid="uid://dpt5sxe5u706f" path="res://Scripts/Components/HealthComponent.gd" id="3_p1foo"]
+[ext_resource type="Script" uid="uid://bcl8mnwxbaxlq" path="res://Scripts/UI/Health_bar.gd" id="4_a7lyv"]
+[ext_resource type="PackedScene" uid="uid://d25v4leaapfg1" path="res://Scenes/heart_icon.tscn" id="4_r8mcl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1usvj"]
 size = Vector2(4, 5)
@@ -141,6 +145,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shqcg"]
+size = Vector2(4.0524435, 5.005961)
+
 [node name="Cal" type="CharacterBody2D" unique_id=1774389727 groups=["player"]]
 scale = Vector2(12.585, 12.585)
 script = ExtResource("1_fl0g7")
@@ -156,3 +163,32 @@ animation = &"Walk_Left"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=364996312]
 zoom = Vector2(1.55, 1.55)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1278788973]
+script = ExtResource("3_p1foo")
+max_health = 6
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=224328948 node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_1usvj")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1473399492]
+position = Vector2(-0.03972948, 0.4370282)
+scale = Vector2(0.9999996, 0.9999996)
+shape = SubResource("RectangleShape2D_shqcg")
+debug_color = Color(0.7820103, 0.25375226, 0.4084226, 0.41960785)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2112558121]
+
+[node name="HealthBar" type="Node2D" parent="HUD" unique_id=226718959 node_paths=PackedStringArray("health_component")]
+position = Vector2(200, 100)
+script = ExtResource("4_a7lyv")
+health_component = NodePath("../../HealthComponent")
+
+[node name="Heart1" parent="HUD/HealthBar" unique_id=463771299 instance=ExtResource("4_r8mcl")]
+
+[node name="Heart2" parent="HUD/HealthBar" unique_id=1349616592 instance=ExtResource("4_r8mcl")]
+position = Vector2(22, 0)
+
+[node name="Heart3" parent="HUD/HealthBar" unique_id=976984162 instance=ExtResource("4_r8mcl")]
+position = Vector2(44, 0)
