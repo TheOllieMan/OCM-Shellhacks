@@ -214,9 +214,9 @@ scale = Vector2(4.43157, 4.43157)
 script = SubResource("GDScript_spw8f")
 main_menu_scene = ""
 
-[node name="HUD" type="CanvasLayer" parent="Cal" unique_id=1795342876]
+[node name="HUD2" type="CanvasLayer" parent="Cal" unique_id=1795342876]
 
-[node name="KeyIcon" type="TextureRect" parent="Cal/HUD" unique_id=95062977]
+[node name="KeyIcon" type="TextureRect" parent="Cal/HUD2" unique_id=95062977]
 visible = false
 anchors_preset = -1
 anchor_right = 0.1593611
@@ -228,7 +228,7 @@ offset_bottom = 277.352
 texture = ExtResource("4_trllh")
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Cal/HUD/KeyIcon" unique_id=1057847564]
+[node name="ColorRect" type="ColorRect" parent="Cal/HUD2/KeyIcon" unique_id=1057847564]
 show_behind_parent = true
 layout_mode = 0
 offset_left = -3.0

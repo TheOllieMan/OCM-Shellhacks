@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="5_sygud"]
 [ext_resource type="Texture2D" uid="uid://bidh6ejfj2tyk" path="res://Assets/Other/Key1.png" id="6_ns3bf"]
 [ext_resource type="AudioStream" uid="uid://cayugfcoal126" path="res://Assets/Audio/alex-morgan-ambient-horror-creepy-atmosphere-dark-587402.mp3" id="7_j6jxx"]
+[ext_resource type="Script" uid="uid://b6qelvfkwbeag" path="res://Scripts/Objects/keyscript.gd" id="8_j6jxx"]
 [ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="8_ns3bf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sygud"]
@@ -193,6 +194,9 @@ func _unhandled_input(
 		$HurtboxComponent.take_hit(1)
 "
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmqbr"]
+radius = 47.0
+
 [node name="CrossroadsLeft" type="Node2D" unique_id=616168912]
 position = Vector2(1040, 631)
 scale = Vector2(-1, -1)
@@ -293,3 +297,17 @@ visible = false
 position = Vector2(-29, 295)
 scale = Vector2(1.962406, 3.5299356)
 destination_scene = "uid://dv7nu2u5r1em3"
+
+[node name="Key" type="Area2D" parent="." unique_id=1322250768]
+position = Vector2(789, 479)
+scale = Vector2(-0.5112965, -0.3502573)
+script = ExtResource("8_j6jxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1213795567]
+position = Vector2(15.6465, -21.79728)
+scale = Vector2(4.400578, 6.65034)
+texture = ExtResource("6_ns3bf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=526743404]
+position = Vector2(20, -26)
+shape = SubResource("CircleShape2D_dmqbr")
