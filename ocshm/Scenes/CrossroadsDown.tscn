@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://edc1xhj7nmm6" path="res://Assets/Environement/Stone.png" id="2_fpd7d"]
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="3_8osih"]
 [ext_resource type="Script" uid="uid://btbffoai8rxhn" path="res://Scenes/SceneTrigger.gd" id="4_fpd7d"]
+[ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="5_805bh"]
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="5_fln0o"]
 [ext_resource type="Texture2D" uid="uid://bidh6ejfj2tyk" path="res://Assets/Other/Key1.png" id="6_805bh"]
 [ext_resource type="AudioStream" uid="uid://cayugfcoal126" path="res://Assets/Audio/alex-morgan-ambient-horror-creepy-atmosphere-dark-587402.mp3" id="7_e7e2g"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ps00s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fln0o"]
 texture = ExtResource("1_etakg")
 2:2/0 = 0
 3:2/0 = 0
@@ -46,11 +47,11 @@ texture = ExtResource("1_etakg")
 13:10/0 = 0
 14:10/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fln0o"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_805bh"]
 texture = ExtResource("2_fpd7d")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_805bh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7e2g"]
 texture = ExtResource("3_8osih")
 1:1/0 = 0
 3:1/0 = 0
@@ -89,9 +90,9 @@ texture = ExtResource("3_8osih")
 15:11/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_e7e2g"]
-sources/0 = SubResource("TileSetAtlasSource_ps00s")
-sources/1 = SubResource("TileSetAtlasSource_fln0o")
-sources/3 = SubResource("TileSetAtlasSource_805bh")
+sources/0 = SubResource("TileSetAtlasSource_fln0o")
+sources/1 = SubResource("TileSetAtlasSource_805bh")
+sources/3 = SubResource("TileSetAtlasSource_e7e2g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etakg"]
 size = Vector2(873.5536, 18.415527)
@@ -112,10 +113,10 @@ size = Vector2(257, 25)
 size = Vector2(286, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7e2g"]
-size = Vector2(29.5, 56)
+size = Vector2(20.500008, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yg2e"]
-size = Vector2(24, 55)
+size = Vector2(27.000015, 54)
 
 [sub_resource type="GDScript" id="GDScript_0yg2e"]
 script/source = "extends CharacterBody2D
@@ -274,12 +275,18 @@ script = ExtResource("4_fpd7d")
 next_scene = "uid://dv7nu2u5r1em3"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DoorTop/Trigger" unique_id=948415847]
-position = Vector2(-124.25, 254)
+position = Vector2(-119.750015, 252.5)
+scale = Vector2(0.7317682, 0.9657813)
 shape = SubResource("RectangleShape2D_e7e2g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorTop" unique_id=1410991027]
-position = Vector2(-29, 296.5)
+position = Vector2(-30.500008, 296)
 shape = SubResource("RectangleShape2D_0yg2e")
+
+[node name="Door" parent="DoorTop" unique_id=1069027678 instance=ExtResource("5_805bh")]
+position = Vector2(-30.000011, 294)
+scale = Vector2(-2.5112708, -2.5112708)
+destination_scene = "uid://dv7nu2u5r1em3"
 
 [node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("5_fln0o")]
 position = Vector2(470, 73.999985)

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="5_1on7m"]
 [ext_resource type="AudioStream" uid="uid://cayugfcoal126" path="res://Assets/Audio/alex-morgan-ambient-horror-creepy-atmosphere-dark-587402.mp3" id="6_spw8f"]
 [ext_resource type="Script" uid="uid://btbffoai8rxhn" path="res://Scenes/SceneTrigger.gd" id="7_pk4a6"]
+[ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="8_qlsyl"]
 
 [sub_resource type="GDScript" id="GDScript_spw8f"]
 script/source = "extends CharacterBody2D
@@ -200,10 +201,10 @@ size = Vector2(513.5, 25)
 size = Vector2(513.5, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8hsn"]
-size = Vector2(29.5, 56)
+size = Vector2(1.3750038, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ttvm"]
-size = Vector2(24, 55)
+size = Vector2(27.750069, 53.49996)
 
 [node name="CrossroadsScene(main)" type="Node2D" unique_id=66673851]
 
@@ -314,12 +315,17 @@ script = ExtResource("7_pk4a6")
 next_scene = "uid://ccoybkrkqkdrr"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DoorLeft/Trigger" unique_id=2060989208]
-position = Vector2(-123, 254)
+position = Vector2(-125.625, 254)
 shape = SubResource("RectangleShape2D_m8hsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLeft" unique_id=1394915126]
-position = Vector2(-30, 296.5)
+position = Vector2(-29.750065, 296.5)
 shape = SubResource("RectangleShape2D_4ttvm")
+
+[node name="Door" parent="DoorLeft" unique_id=1069027678 instance=ExtResource("8_qlsyl")]
+position = Vector2(-31, 297)
+scale = Vector2(2.0686622, 3.0670257)
+destination_scene = "uid://ccoybkrkqkdrr"
 
 [node name="DoorRight" type="StaticBody2D" parent="." unique_id=1301701042]
 visible = false
@@ -331,12 +337,17 @@ script = ExtResource("7_pk4a6")
 next_scene = "uid://frg67vac5scn"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DoorRight/Trigger" unique_id=483707893]
-position = Vector2(-124.25, 254)
+position = Vector2(-119.75, 258)
 shape = SubResource("RectangleShape2D_m8hsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRight" unique_id=1237036567]
 position = Vector2(-29, 296.5)
 shape = SubResource("RectangleShape2D_4ttvm")
+
+[node name="Door" parent="DoorRight" unique_id=1341399856 instance=ExtResource("8_qlsyl")]
+position = Vector2(-33, 294.00003)
+scale = Vector2(2.4694924, 2.4694924)
+destination_scene = "uid://frg67vac5scn"
 
 [node name="DoorDown" type="StaticBody2D" parent="." unique_id=178628974]
 visible = false
@@ -353,8 +364,14 @@ position = Vector2(-124.25, 254)
 shape = SubResource("RectangleShape2D_m8hsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorDown" unique_id=395289681]
-position = Vector2(-29, 296.5)
+position = Vector2(-30.499756, 295.99985)
 shape = SubResource("RectangleShape2D_4ttvm")
+
+[node name="Door" parent="DoorDown" unique_id=175926813 instance=ExtResource("8_qlsyl")]
+visible = false
+position = Vector2(-39.999985, 297)
+scale = Vector2(2.8641477, 2.8641477)
+destination_scene = "uid://b8xhyy5kxw5jy"
 
 [node name="DoorUp" type="StaticBody2D" parent="." unique_id=1807924483]
 visible = false
@@ -367,9 +384,14 @@ script = ExtResource("7_pk4a6")
 next_scene = "uid://4rhe123psjn"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DoorUp/Trigger" unique_id=1945007472]
-position = Vector2(-123, 254)
+position = Vector2(-131.31248, 255.5)
 shape = SubResource("RectangleShape2D_m8hsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorUp" unique_id=1439597313]
-position = Vector2(-30, 296.5)
+position = Vector2(-29.875017, 295.25003)
 shape = SubResource("RectangleShape2D_4ttvm")
+
+[node name="Door" parent="DoorUp" unique_id=612634838 instance=ExtResource("8_qlsyl")]
+position = Vector2(-27.999989, 295.00003)
+scale = Vector2(2.449106, 3.0368757)
+destination_scene = "uid://4rhe123psjn"
