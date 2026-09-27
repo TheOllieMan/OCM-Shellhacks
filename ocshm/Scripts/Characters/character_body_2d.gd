@@ -99,7 +99,7 @@ func _attack() -> void:
 
 	is_attacking = true
 
-	_position_attack_hitbox()
+	#_position_attack_hitbox()
 
 	match facing_direction:
 

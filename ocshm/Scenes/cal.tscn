@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4gko7")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Attack_Down",
 "speed": 5.0
 }, {
@@ -131,7 +131,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_883ky")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Attack_Left",
 "speed": 5.0
 }, {
@@ -142,7 +142,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_42x7q")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Attack_Right",
 "speed": 5.0
 }, {
@@ -153,7 +153,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8wy3o")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Attack_Up",
 "speed": 5.0
 }, {
@@ -229,8 +229,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shqcg"]
 size = Vector2(4.0524445, 3.098929)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh4yq"]
-size = Vector2(4.1319036, 3.1783872)
+[sub_resource type="CircleShape2D" id="CircleShape2D_n86ds"]
+radius = 2.6329827
 
 [node name="Cal" type="CharacterBody2D" unique_id=1774389727 groups=["player"]]
 scale = Vector2(12.585, 12.585)
@@ -246,7 +246,7 @@ shape = SubResource("RectangleShape2D_1usvj")
 texture_filter = 1
 scale = Vector2(0.128, 0.096)
 sprite_frames = SubResource("SpriteFrames_hcc7m")
-animation = &"Walk_Left"
+animation = &"Attack_Right"
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "layer_section": false,
@@ -294,8 +294,7 @@ collision_mask = 4
 script = ExtResource("5_p46tr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=2061832243]
-position = Vector2(-4.211363, 0)
-shape = SubResource("RectangleShape2D_yh4yq")
+shape = SubResource("CircleShape2D_n86ds")
 debug_color = Color(0.623003, 0.5320719, 0.09969131, 0.41960785)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2112558121]

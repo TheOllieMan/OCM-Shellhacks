@@ -5,11 +5,12 @@ extends Area2D
 @export var damage: int = 1
 
 
+var attack_active: bool = false
 var already_hit: Array[HurtboxComponent] = []
 
 
 func _ready() -> void:
-	monitoring = false
+	monitoring = true
 
 	area_entered.connect(
 		_on_area_entered
@@ -19,38 +20,45 @@ func _ready() -> void:
 func begin_attack() -> void:
 	print("ATTACK HITBOX ON")
 
+	attack_active = true
 	already_hit.clear()
-	monitoring = true
+
+	# Important:
+	# damage enemies that are already overlapping
+	# when the swing starts.
+	for area in get_overlapping_areas():
+		_try_hit(area)
 
 
 func end_attack() -> void:
 	print("ATTACK HITBOX OFF")
 
-	monitoring = false
+	attack_active = false
 	already_hit.clear()
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print(
-		"Attack touched area: ",
-		area.name
-	)
+	if not attack_active:
+		return
 
+	_try_hit(area)
+
+
+func _try_hit(area: Area2D) -> void:
 	var hurtbox := area as HurtboxComponent
 
 	if hurtbox == null:
-		print("Not a HurtboxComponent")
 		return
 
 	if hurtbox in already_hit:
-		print("Already hit this enemy")
 		return
 
-	already_hit.append(
-		hurtbox
-	)
+	already_hit.append(hurtbox)
 
-	print("ENEMY HIT FOR ", damage)
+	print(
+		"ENEMY HIT FOR ",
+		damage
+	)
 
 	hurtbox.take_hit(
 		damage
