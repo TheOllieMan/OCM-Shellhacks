@@ -53,7 +53,6 @@ func Animate():
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= 1
 		animated_sprite.play("Walk_Left")
-		$AnimatedSprite2D.flip_h = velocity.x < 0
 
 #Right
 	elif Input.is_action_pressed("Right"):
