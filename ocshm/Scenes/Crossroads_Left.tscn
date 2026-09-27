@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://edc1xhj7nmm6" path="res://Assets/Environement/Stone.png" id="2_qd5pn"]
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="3_o52rf"]
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="5_sygud"]
-[ext_resource type="Texture2D" uid="uid://bidh6ejfj2tyk" path="res://Assets/Other/Key1.png" id="6_ns3bf"]
-[ext_resource type="AudioStream" uid="uid://cayugfcoal126" path="res://Assets/Audio/alex-morgan-ambient-horror-creepy-atmosphere-dark-587402.mp3" id="7_j6jxx"]
-[ext_resource type="Script" uid="uid://b6qelvfkwbeag" path="res://Scripts/Objects/keyscript.gd" id="8_j6jxx"]
+[ext_resource type="PackedScene" uid="uid://brh44ug2imamr" path="res://Scripts/Objects/key.tscn" id="6_sygud"]
 [ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="8_ns3bf"]
+[ext_resource type="PackedScene" uid="uid://b456aj7y3a45g" path="res://Scenes/enemy.tscn" id="9_j6jxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sygud"]
 texture = ExtResource("1_nh3td")
@@ -103,99 +102,10 @@ size = Vector2(226.44582, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sygud"]
 size = Vector2(311, 25)
 
-[sub_resource type="GDScript" id="GDScript_dmqbr"]
-script/source = "extends CharacterBody2D
-
-@export var speed = 200
-
-#@onready var bg_music: AudioStreamPlayer2D = $\"../BGMusic\"
-
-@onready var animated_sprite = $AnimatedSprite2D
-#@onready var key_icon = $HUD/KeyIcon
-@onready var health_component: HealthComponent = ($HealthComponent)
-#@onready var _animation_player = $AnimationPlayer
-@export_file(\"*.tscn\")
-var main_menu_scene: String
-
-#var has_key := false:
-	#set(value):
-		#has_key = value
-		#if key_icon:
-			#key_icon.visible = value
-
-
-func _ready() -> void:
-		health_component.died.connect(_on_died)
-		#bg_music.play()
-	#key_icon.visible = false
-	
-func _physics_process(delta):
-	
-	velocity = Vector2.ZERO
-
-	Animate()
-
-
-	if velocity == Vector2.ZERO:
-		animated_sprite.stop()
-		return
-
-
-	# Set velocity based on direction and speed
-	velocity = velocity.normalized() * speed
-	
-
-	move_and_slide()
-
-#Movement Animations
-func Animate():
-
-#Up
-	if Input.is_action_pressed(\"Up\"):
-		velocity.y -= 1
-		animated_sprite.play(\"Walk_Up\")
-
-#Left
-	elif Input.is_action_pressed(\"Left\"):
-		velocity.x -= 1
-		animated_sprite.play(\"Walk_Left\")
-		$AnimatedSprite2D.flip_h = velocity.x < 0
-
-#Right
-	elif Input.is_action_pressed(\"Right\"):
-		velocity.x += 1
-		animated_sprite.play(\"Walk_Right\")
-		$AnimatedSprite2D.flip_h = false
-
-#Down
-	elif Input.is_action_pressed(\"Down\"):
-		velocity.y += 1
-		animated_sprite.play(\"Walk_Down\")
-
-# Move and handle collisions
-func _on_died() -> void:
-	print(\"Cal died.\")
-
-	# Stop the player from continuing to move/interact.
-	set_physics_process(false)
-	set_process_input(false)
-	set_process_unhandled_input(false)
-
-	# Load the main menu through our loading-screen system.
-	get_tree().change_scene_to_file.call_deferred(main_menu_scene)
-
-func _unhandled_input(
-	event: InputEvent
-) -> void:
-
-	if event.is_action_pressed(
-		\"test_damage\"
-	):
-		$HurtboxComponent.take_hit(1)
-"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dmqbr"]
-radius = 47.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uuc0u"]
+vertices = PackedVector2Array(948.03125, 52.960938, 949.96094, 563.0625, 2.0078125, 568.9297, 2.9765625, 50.03125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(960, 573, 958, 43, -7, 40, -8, 579)])
 
 [node name="CrossroadsLeft" type="Node2D" unique_id=616168912]
 position = Vector2(1040, 631)
@@ -251,46 +161,8 @@ shape = SubResource("RectangleShape2D_u74sv")
 
 [node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("5_sygud")]
 position = Vector2(30, 289)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(4.43157, 4.43157)
-script = SubResource("GDScript_dmqbr")
-main_menu_scene = ""
-
-[node name="_CanvasLayer_395679" type="CanvasLayer" parent="Cal" unique_id=376431321]
-
-[node name="KeyIcon" type="TextureRect" parent="Cal/_CanvasLayer_395679" unique_id=1734900404]
-visible = false
-anchors_preset = -1
-anchor_right = 0.1593611
-anchor_bottom = 0.40686423
-offset_left = 533.0
-offset_top = 481.0
-offset_right = 409.41602
-offset_bottom = 277.352
-texture = ExtResource("6_ns3bf")
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="Cal/_CanvasLayer_395679/KeyIcon" unique_id=1442966931]
-show_behind_parent = true
-layout_mode = 0
-offset_left = -3.0
-offset_top = -1.9999962
-offset_right = 60.0
-offset_bottom = 61.96924
-metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D2" type="Camera2D" parent="Cal" unique_id=27244509]
-position = Vector2(2.0308914, 7.6293945e-06)
-scale = Vector2(0.029946098, 0.09929753)
-offset = Vector2(-5.68, 0)
-zoom = Vector2(3.865, 3.865)
-
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="Cal" unique_id=850945107]
-position = Vector2(-127.71996, -72.66047)
-scale = Vector2(0.22565366, 0.22565366)
-stream = ExtResource("7_j6jxx")
-volume_db = -15.552
-autoplay = true
 
 [node name="Door" parent="." unique_id=1069027678 instance=ExtResource("8_ns3bf")]
 visible = false
@@ -298,16 +170,16 @@ position = Vector2(-29, 295)
 scale = Vector2(1.962406, 3.5299356)
 destination_scene = "uid://dv7nu2u5r1em3"
 
-[node name="Key" type="Area2D" parent="." unique_id=1322250768]
+[node name="Key" parent="." unique_id=393332875 instance=ExtResource("6_sygud")]
+visible = true
 position = Vector2(789, 479)
-scale = Vector2(-0.5112965, -0.3502573)
-script = ExtResource("8_j6jxx")
+key_id = &"key_1"
 
-[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1213795567]
-position = Vector2(15.6465, -21.79728)
-scale = Vector2(4.400578, 6.65034)
-texture = ExtResource("6_ns3bf")
+[node name="Enemy" parent="." unique_id=652224671 node_paths=PackedStringArray("hidden_key") instance=ExtResource("9_j6jxx")]
+position = Vector2(768, 256)
+scale = Vector2(-4.0641975, -4.0641975)
+hidden_key = NodePath("../Key")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=526743404]
-position = Vector2(20, -26)
-shape = SubResource("CircleShape2D_dmqbr")
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1423377926]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_uuc0u")

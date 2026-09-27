@@ -5,7 +5,8 @@ signal keys_changed(key_count: int)
 
 
 var collected_keys: Array[StringName] = []
-
+func key_count() -> int:
+	return collected_keys.size()
 
 func collect_key(key_id: StringName) -> bool:
 	if has_key(key_id):

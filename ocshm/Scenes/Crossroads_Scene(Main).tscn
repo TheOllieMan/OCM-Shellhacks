@@ -3,102 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://gjijcmnmfcma" path="res://Assets/Environement/Warehouse Assests.png" id="1_5bt8r"]
 [ext_resource type="Texture2D" uid="uid://edc1xhj7nmm6" path="res://Assets/Environement/Stone.png" id="2_trllh"]
 [ext_resource type="PackedScene" uid="uid://c16hp6g0kycie" path="res://Scenes/cal.tscn" id="3_1on7m"]
-[ext_resource type="Texture2D" uid="uid://bidh6ejfj2tyk" path="res://Assets/Other/Key1.png" id="4_trllh"]
 [ext_resource type="Texture2D" uid="uid://n62ojuminj4b" path="res://Assets/Environement/Warehouse Assests (1).png" id="5_1on7m"]
-[ext_resource type="AudioStream" uid="uid://cayugfcoal126" path="res://Assets/Audio/alex-morgan-ambient-horror-creepy-atmosphere-dark-587402.mp3" id="6_spw8f"]
 [ext_resource type="Script" uid="uid://btbffoai8rxhn" path="res://Scenes/SceneTrigger.gd" id="7_pk4a6"]
 [ext_resource type="PackedScene" uid="uid://itiwkj03qkdj" path="res://Scenes/door.tscn" id="8_qlsyl"]
-
-[sub_resource type="GDScript" id="GDScript_spw8f"]
-script/source = "extends CharacterBody2D
-
-@export var speed = 200
-
-#@onready var bg_music: AudioStreamPlayer2D = $\"../BGMusic\"
-
-@onready var animated_sprite = $AnimatedSprite2D
-#@onready var key_icon = $HUD/KeyIcon
-@onready var health_component: HealthComponent = ($HealthComponent)
-#@onready var _animation_player = $AnimationPlayer
-@export_file(\"*.tscn\")
-var main_menu_scene: String
-
-#var has_key := false:
-	#set(value):
-		#has_key = value
-		#if key_icon:
-			#key_icon.visible = value
-
-
-func _ready() -> void:
-		health_component.died.connect(_on_died)
-		#bg_music.play()
-	#key_icon.visible = false
-	
-func _physics_process(delta):
-	
-	velocity = Vector2.ZERO
-
-	Animate()
-
-
-	if velocity == Vector2.ZERO:
-		animated_sprite.stop()
-		return
-
-
-	# Set velocity based on direction and speed
-	velocity = velocity.normalized() * speed
-	
-
-	move_and_slide()
-
-#Movement Animations
-func Animate():
-
-#Up
-	if Input.is_action_pressed(\"Up\"):
-		velocity.y -= 1
-		animated_sprite.play(\"Walk_Up\")
-
-#Left
-	elif Input.is_action_pressed(\"Left\"):
-		velocity.x -= 1
-		animated_sprite.play(\"Walk_Left\")
-		$AnimatedSprite2D.flip_h = velocity.x < 0
-
-#Right
-	elif Input.is_action_pressed(\"Right\"):
-		velocity.x += 1
-		animated_sprite.play(\"Walk_Right\")
-		$AnimatedSprite2D.flip_h = false
-
-#Down
-	elif Input.is_action_pressed(\"Down\"):
-		velocity.y += 1
-		animated_sprite.play(\"Walk_Down\")
-
-# Move and handle collisions
-func _on_died() -> void:
-	print(\"Cal died.\")
-
-	# Stop the player from continuing to move/interact.
-	set_physics_process(false)
-	set_process_input(false)
-	set_process_unhandled_input(false)
-
-	# Load the main menu through our loading-screen system.
-	get_tree().change_scene_to_file.call_deferred(main_menu_scene)
-
-func _unhandled_input(
-	event: InputEvent
-) -> void:
-
-	if event.is_action_pressed(
-		\"test_damage\"
-	):
-		$HurtboxComponent.take_hit(1)
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spw8f"]
 texture = ExtResource("1_5bt8r")
@@ -211,44 +118,6 @@ size = Vector2(27.750069, 53.49996)
 [node name="Cal" parent="." unique_id=1774389727 instance=ExtResource("3_1on7m")]
 position = Vector2(565.99994, 321.99997)
 scale = Vector2(4.43157, 4.43157)
-script = SubResource("GDScript_spw8f")
-main_menu_scene = ""
-
-[node name="HUD2" type="CanvasLayer" parent="Cal" unique_id=1795342876]
-
-[node name="KeyIcon" type="TextureRect" parent="Cal/HUD2" unique_id=95062977]
-visible = false
-anchors_preset = -1
-anchor_right = 0.1593611
-anchor_bottom = 0.40686423
-offset_left = 533.0
-offset_top = 481.0
-offset_right = 409.41602
-offset_bottom = 277.352
-texture = ExtResource("4_trllh")
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="Cal/HUD2/KeyIcon" unique_id=1057847564]
-show_behind_parent = true
-layout_mode = 0
-offset_left = -3.0
-offset_top = -1.9999962
-offset_right = 60.0
-offset_bottom = 61.96924
-metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D2" type="Camera2D" parent="Cal" unique_id=1907466385]
-position = Vector2(2.0308914, 7.6293945e-06)
-scale = Vector2(0.029946098, 0.09929753)
-offset = Vector2(-5.68, 0)
-zoom = Vector2(3.865, 3.865)
-
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="Cal" unique_id=355462447]
-position = Vector2(-127.71996, -72.66047)
-scale = Vector2(0.22565366, 0.22565366)
-stream = ExtResource("6_spw8f")
-volume_db = -15.552
-autoplay = true
 
 [node name="World" type="Node2D" parent="." unique_id=1425348480]
 show_behind_parent = true

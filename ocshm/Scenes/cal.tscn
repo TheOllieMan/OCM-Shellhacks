@@ -238,6 +238,7 @@ script = ExtResource("1_fl0g7")
 main_menu_scene = "uid://cghqg6hhtp4u4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803760199]
+visible = false
 position = Vector2(0, -0.039729904)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_1usvj")
@@ -282,12 +283,14 @@ health_component = NodePath("../HealthComponent")
 use_invulnerability = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1473399492]
+visible = false
 position = Vector2(-0.039728917, -0.039729863)
 scale = Vector2(0.9999992, 0.9999992)
 shape = SubResource("RectangleShape2D_shqcg")
 debug_color = Color(0.7820103, 0.25375226, 0.4084226, 0.41960785)
 
 [node name="AttackHitbox" type="Area2D" parent="." unique_id=669868849]
+visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 8
 collision_mask = 4

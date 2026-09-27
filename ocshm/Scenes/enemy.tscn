@@ -39,6 +39,7 @@ script = ExtResource("1_1f0kj")
 sprite_frames = SubResource("SpriteFrames_uuc0u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=487468496]
+visible = false
 shape = SubResource("CircleShape2D_hpaef")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2061968889]
@@ -51,6 +52,7 @@ autostart = true
 script = ExtResource("5_0830c")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=648533619 node_paths=PackedStringArray("health_component")]
+visible = false
 collision_layer = 4
 script = ExtResource("4_287tu")
 health_component = NodePath("../HealthComponent")
@@ -60,6 +62,7 @@ shape = SubResource("CircleShape2D_shqcg")
 debug_color = Color(0.32989222, 0.5263572, 0.16546336, 0.41960785)
 
 [node name="ContactDamage" type="Area2D" parent="." unique_id=571173900]
+visible = false
 collision_mask = 2
 script = ExtResource("3_afpow")
 
